@@ -1,23 +1,64 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {Platform, StatusBar, View} from "react-native";
+import {StackNavigator, TabNavigator} from "react-navigation";
+import {Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
+import Decks from "./components/Decks";
+import AddDeck from "./components/AddDeck";
+import {primary, white} from "./utils/colors";
+import {Constants} from "expo";
 
-export default class App extends React.Component {
-  render() {
+function AppStatusBar({backgroundColor, ...props}) {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
+        <View style={{backgroundColor, height: Constants.statusBarHeight}}>
+            <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+        </View>
+    )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const Tabs = TabNavigator({
+    Decks: {
+        screen: Decks,
+        navigationOptions: {
+            tabBarLabel: 'Decks',
+            tabBarIcon: ({tintColor}) => <MaterialCommunityIcons name='cards' size={25} color={tintColor}/>
+        }
+    },
+    AddDeck: {
+        screen: AddDeck,
+        navigationOptions: {
+            tabBarLabel: 'Add New Deck',
+            tabBarIcon: ({tintColor}) => <Ionicons name='ios-add' size={25} color={tintColor}/>
+        }
+    }
+}, {
+    navigationOptions: {
+        header: null
+    },
+    animationEnabled: true,
+    lazy: true,
+    tabBarOptions: {
+        activeTintColor: Platform.OS === 'ios' ? primary : white,
+        style: {
+            height: 50,
+            backgroundColor: Platform.OS === 'ios' ? white : primary,
+            shadowColor: 'rgba(0, 0, 0, 0.24)',
+            shadowOffset: {
+                width: 0,
+                height: 3
+            },
+            shadowRadius: 6,
+            shadowOpacity: 1
+        }
+    }
 });
+
+export default class App extends React.Component {
+    render() {
+        return (
+            <View style={{flex: 1}}>
+                <AppStatusBar backgroundColor={primary} barStyle="light-content"/>
+                <Tabs  />
+            </View>
+        );
+    }
+}
