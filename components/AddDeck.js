@@ -1,7 +1,10 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
 import {KeyboardAvoidingView, Platform, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {styles} from "../utils/styles";
 import {saveDeckTitle} from "../utils/api";
+import {addDeck} from "../actions";
+import {loadDecks} from "../utils/helpers";
 
 function SubmitBtn({onPress}) {
     return (
@@ -13,7 +16,7 @@ function SubmitBtn({onPress}) {
     )
 }
 
-export default class AddDeck extends Component {
+class AddDeck extends Component {
     state = {
         title: '',
         valid: true
@@ -25,16 +28,16 @@ export default class AddDeck extends Component {
                 <View style={[styles.center]}>
                     <Text
                         style={[styles.text, (!this.state.valid) ? styles.errorText : '']}>
-                        Enter the name of new Deck
+                        What is the name of your new deck?
                     </Text>
                 </View>
                 <View>
                     <TextInput
-                        ref="name"
+                        ref="title"
                         style={[styles.input, (!this.state.valid) ? styles.errorInput : '']}
                         value={this.state.title}
                         onChangeText={(title) => this.setState({title})}
-                        placeholder="Name"
+                        placeholder="Enter a deck title"
                     />
                 </View>
                 <View style={{marginTop: 10}}>
@@ -47,10 +50,21 @@ export default class AddDeck extends Component {
     newDeck = () => {
         if (this.state.title) {
             saveDeckTitle(this.state.title);
-            this.refs['name'].setNativeProps({text: ''});
-            this.setState({valid: true, title: ''})
-        } else {
+            this.refs['title'].setNativeProps({text: ''});
+            this.props.navigation.navigate('Deck', {title: this.state.title});
+            this.setState({valid: true, title: ''});
+            loadDecks(this.props.dispatch)
+        }
+        else {
             this.setState({valid: false})
         }
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        decks: state.decks
+    }
+}
+
+export default connect(mapStateToProps)(AddDeck)
