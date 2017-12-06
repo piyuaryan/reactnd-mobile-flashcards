@@ -65,8 +65,7 @@ const MainNav = StackNavigator({
             screen: Tabs
         },
         Deck: {
-            screen: DeckDetails,
-            title: 'Deck Details'
+            screen: DeckDetails
         },
         AddCard: {
             screen: AddCard

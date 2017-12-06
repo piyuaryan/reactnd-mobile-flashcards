@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {KeyboardAvoidingView, Platform, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {styles} from "../utils/styles";
 import {saveDeckTitle} from "../utils/api";
 import {addDeck} from "../actions";

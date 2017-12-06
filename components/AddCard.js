@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import {Text, TextInput, TouchableOpacity, View} from "react-native";
+import {FontAwesome, Ionicons} from "@expo/vector-icons";
+import {danger, primary} from "../utils/colors";
+import {addDeck} from "../actions";
 import {addCardToDeck} from "../utils/api";
 import {styles} from "../utils/styles";
 
@@ -20,7 +23,7 @@ class AddCard extends Component {
         valid: true
     };
 
-    static navigationOptions = () => {
+    static navigationOptions = ({navigation}) => {
         return {
             title: 'Add a new card'
         }
@@ -52,12 +55,18 @@ class AddCard extends Component {
 
     addCard = () => {
         if (this.state.question && this.state.answer) {
-            addCardToDeck(this.props.navigation.state.params.title, this.state);
-            this.props.navigation.goBack();
-            this.props.navigation.state.params.refresh();
+            addCardToDeck(this.props.navigation.state.params.title, this.state)
+                .then(() => {
+                        this.props.navigation.goBack();
+                        this.props.navigation.state.params.refresh()
+                    }
+                );
+            this.refs['question'].setNativeProps({text: ''});
+            this.refs['answer'].setNativeProps({text: ''});
         }
         else
             this.setState({valid: false})
+
     }
 }
 
