@@ -84,7 +84,7 @@ class Quiz extends Component {
 
     showAnswer = (questions) => {
         return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={styles.center}>
                 <Text style={styles.headerText}>{questions[this.state.index].answer}</Text>
                 <View style={{padding: 20}}>
                     <TouchableOpacity
@@ -100,7 +100,7 @@ class Quiz extends Component {
 
     showQuestion = (questions) => {
         return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={styles.center}>
                 <Text style={styles.headerText}>{questions[this.state.index].question}</Text>
                 <View style={{padding: 20}}>
                     <TouchableOpacity

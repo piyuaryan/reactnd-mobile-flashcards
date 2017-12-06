@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
         padding: 10
     },
     center: {
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -32,19 +33,11 @@ export const styles = StyleSheet.create({
         borderColor: colors.red
     },
     headerText: {
-        fontSize: 20,
+        fontSize: 32,
         fontWeight: "600"
     },
     subHeaderText: {
         fontSize: 15,
-        color: '#444'
-    },
-    largeHeaderText: {
-        fontSize: 26,
-        fontWeight: "600"
-    },
-    largeMutedText: {
-        fontSize: 20,
         color: '#444'
     },
     listItem: {
@@ -54,6 +47,11 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 15,
         backgroundColor: colors.white,
+    },
+    separator: {
+        flex: 1,
+        height: 1,
+        backgroundColor: colors.purple
     },
     spacing: {
         margin: 10

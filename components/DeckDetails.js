@@ -35,7 +35,7 @@ class DeckDetails extends Component {
     deckView = (deck) => {
         return (
             <View style={styles.container}>
-                <View style={{flex: 1, alignItems: 'center'}}>
+                <View style={styles.center}>
                     <Text style={styles.headerText}>{deck.title}</Text>
                     <Text style={styles.subHeaderText}>{deck.questions.length} cards</Text>
                 </View>
