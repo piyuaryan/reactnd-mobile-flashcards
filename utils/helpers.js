@@ -1,7 +1,3 @@
-/**
- * @description load all decks from storage
- * @param { object } dispatch
- */
 import React from "react";
 import {AsyncStorage} from "react-native";
 import {Notifications, Permissions} from "expo";
@@ -70,11 +66,6 @@ export function loadDecks(dispatch) {
 
 }
 
-/**
- * @description take the deck title and load the chosen deck
- * @param { string } title
- * @param { object } dispatch
- */
 export function loadDeck(title, dispatch) {
     fetchDeck(title)
         .then((deck) => {

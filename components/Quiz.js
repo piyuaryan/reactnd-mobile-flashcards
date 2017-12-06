@@ -54,7 +54,7 @@ class Quiz extends Component {
         }
     };
 
-    showQuizButtons = (questions) => {
+    showQuizButtons = () => {
         const {correct} = this.state;
         return (
             <View style={{flex: 1}}>

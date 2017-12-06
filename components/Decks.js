@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Animated, Easing, FlatList, Text, TouchableHighlight, View} from "react-native";
-import {Ionicons} from "@expo/vector-icons";
-import {action, primary, white} from "../utils/colors";
+import {white} from "../utils/colors";
 import {styles} from "../utils/styles";
 import {loadDecks} from "../utils/helpers";
 class Decks extends Component {

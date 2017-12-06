@@ -53,9 +53,6 @@ export const styles = StyleSheet.create({
         height: 1,
         backgroundColor: colors.purple
     },
-    spacing: {
-        margin: 10
-    },
     submitBtn: {
         backgroundColor: colors.white,
         borderColor: colors.black,

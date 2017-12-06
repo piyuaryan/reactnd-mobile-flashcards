@@ -1,8 +1,5 @@
 import React, {Component} from "react";
 import {Text, TextInput, TouchableOpacity, View} from "react-native";
-import {FontAwesome, Ionicons} from "@expo/vector-icons";
-import {danger, primary} from "../utils/colors";
-import {addDeck} from "../actions";
 import {addCardToDeck} from "../utils/api";
 import {styles} from "../utils/styles";
 
@@ -23,7 +20,7 @@ class AddCard extends Component {
         valid: true
     };
 
-    static navigationOptions = ({navigation}) => {
+    static navigationOptions = ({}) => {
         return {
             title: 'Add a new card'
         }
