@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         padding: 10
     },
     errorText: {
-        color: colors.error
+        color: colors.red
     },
     input: {
         height: 40,
@@ -29,13 +29,13 @@ export const styles = StyleSheet.create({
         borderWidth: 1
     },
     errorInput: {
-        borderColor: colors.error
+        borderColor: colors.red
     },
     headerText: {
         fontSize: 20,
         fontWeight: "600"
     },
-    mutedText: {
+    subHeaderText: {
         fontSize: 15,
         color: '#444'
     },
@@ -47,7 +47,6 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         color: '#444'
     },
-
     listItem: {
         flex: 1,
         flexDirection: 'row',
@@ -59,38 +58,35 @@ export const styles = StyleSheet.create({
     spacing: {
         margin: 10
     },
-    iosSubmitBtn: {
-        backgroundColor: colors.action,
-        padding: 10,
-        borderRadius: 7,
-        height: 45,
-        marginLeft: 40,
-        marginRight: 40,
-    },
-    AndroidSubmitBtn: {
-        backgroundColor: colors.action,
+    submitBtn: {
+        backgroundColor: colors.white,
+        borderColor: colors.black,
         padding: 10,
         paddingLeft: 30,
         paddingRight: 30,
         height: 45,
         borderRadius: 2,
-        alignSelf: 'flex-end',
-        justifyContent: 'center',
-        alignItems: 'center',
+        marginLeft: 40,
+        marginRight: 40
     },
-    AndroidBtn: {
-        backgroundColor: colors.action,
+    submitBtnSecondary: {
+        backgroundColor: colors.black,
         padding: 10,
-        marginLeft: 30,
-        marginRight: 30,
+        paddingLeft: 30,
+        paddingRight: 30,
         height: 45,
         borderRadius: 2,
-        justifyContent: 'center',
-        alignItems: 'center',
+        marginLeft: 40,
+        marginRight: 40
     },
     submitBtnText: {
-        color: colors.white,
+        color: colors.black,
         fontSize: 20,
         textAlign: 'center',
     },
+    submitBtnTextSecondary: {
+        color: colors.white,
+        fontSize: 20,
+        textAlign: 'center',
+    }
 });

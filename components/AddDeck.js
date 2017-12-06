@@ -9,7 +9,7 @@ import {loadDecks} from "../utils/helpers";
 function SubmitBtn({onPress}) {
     return (
         <TouchableOpacity
-            style={Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.AndroidSubmitBtn}
+            style={styles.submitBtn}
             onPress={onPress}>
             <Text style={styles.submitBtnText}>Submit</Text>
         </TouchableOpacity>
