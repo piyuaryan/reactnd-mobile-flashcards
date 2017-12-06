@@ -6,8 +6,12 @@ import Decks from "./components/Decks";
 import AddDeck from "./components/AddDeck";
 import {purple, white} from "./utils/colors";
 import {Constants} from "expo";
+import DeckDetails from "./components/DeckDetails";
+import AddCard from "./components/AddCard";
+import Quiz from "./components/Quiz";
+import {setLocalNotification} from "./utils/helpers";
 
-function AppStatusBar({backgroundColor, ...props}) {
+function MobileFlashCardsStatusBar({backgroundColor, ...props}) {
     return (
         <View style={{backgroundColor, height: Constants.statusBarHeight}}>
             <StatusBar translucent backgroundColor={backgroundColor} {...props} />
@@ -52,12 +56,44 @@ const Tabs = TabNavigator({
     }
 });
 
+
+const MainNav = StackNavigator({
+        Home: {
+            screen: Tabs
+        },
+        Deck: {
+            screen: DeckDetails
+        },
+        AddCard: {
+            screen: AddCard
+        },
+        Quiz: {
+            screen: Quiz
+        }
+    },
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: purple,
+            },
+            headerTitleStyle: {
+                color: white
+            },
+            headerTintColor: white,
+        }
+    });
+
+
 export default class App extends React.Component {
+    componentDidMount() {
+        setLocalNotification()
+    }
+
     render() {
         return (
             <View style={{flex: 1}}>
-                <AppStatusBar backgroundColor={purple} barStyle="light-content"/>
-                <Tabs  />
+                <MobileFlashCardsStatusBar backgroundColor={purple} barStyle="light-content"/>
+                <MainNav  />
             </View>
         );
     }
