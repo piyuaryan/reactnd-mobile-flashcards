@@ -1,6 +1,9 @@
 import React from "react";
 import {Platform, StatusBar, View} from "react-native";
 import {StackNavigator, TabNavigator} from "react-navigation";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+import {decks} from "./reducers";
 import {Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
 import Decks from "./components/Decks";
 import AddDeck from "./components/AddDeck";
@@ -91,10 +94,12 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
-                <MobileFlashCardsStatusBar backgroundColor={purple} barStyle="light-content"/>
-                <MainNav  />
-            </View>
+            <Provider store={createStore(decks)}>
+                <View style={{flex: 1}}>
+                    <MobileFlashCardsStatusBar backgroundColor={purple} barStyle="light-content"/>
+                    <MainNav  />
+                </View>
+            </Provider>
         );
     }
 }

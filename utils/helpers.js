@@ -1,6 +1,12 @@
+/**
+ * @description load all decks from storage
+ * @param { object } dispatch
+ */
 import React from "react";
 import {AsyncStorage} from "react-native";
 import {Notifications, Permissions} from "expo";
+import {fetchAllDecks, fetchDeck} from "./api";
+import {getDeck, getDecks} from "../actions/index";
 
 export const DECK_STORAGE_KEY = 'MobileFlashCards:decks';
 const NOTIFICATION_KEY = 'MobileFlashCards:notifications';
@@ -52,5 +58,26 @@ export function setLocalNotification() {
                         }
                     })
             }
+        })
+}
+
+
+export function loadDecks(dispatch) {
+    fetchAllDecks()
+        .then((decks) => {
+            dispatch(getDecks(decks))
+        })
+
+}
+
+/**
+ * @description take the deck title and load the chosen deck
+ * @param { string } title
+ * @param { object } dispatch
+ */
+export function loadDeck(title, dispatch) {
+    fetchDeck(title)
+        .then((deck) => {
+            dispatch(getDeck(deck))
         })
 }
