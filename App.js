@@ -4,7 +4,7 @@ import {StackNavigator, TabNavigator} from "react-navigation";
 import {Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
 import Decks from "./components/Decks";
 import AddDeck from "./components/AddDeck";
-import {primary, white} from "./utils/colors";
+import {purple, white} from "./utils/colors";
 import {Constants} from "expo";
 
 function AppStatusBar({backgroundColor, ...props}) {
@@ -37,10 +37,10 @@ const Tabs = TabNavigator({
     animationEnabled: true,
     lazy: true,
     tabBarOptions: {
-        activeTintColor: Platform.OS === 'ios' ? primary : white,
+        activeTintColor: Platform.OS === 'ios' ? purple : white,
         style: {
             height: 50,
-            backgroundColor: Platform.OS === 'ios' ? white : primary,
+            backgroundColor: Platform.OS === 'ios' ? white : purple,
             shadowColor: 'rgba(0, 0, 0, 0.24)',
             shadowOffset: {
                 width: 0,
@@ -56,7 +56,7 @@ export default class App extends React.Component {
     render() {
         return (
             <View style={{flex: 1}}>
-                <AppStatusBar backgroundColor={primary} barStyle="light-content"/>
+                <AppStatusBar backgroundColor={purple} barStyle="light-content"/>
                 <Tabs  />
             </View>
         );

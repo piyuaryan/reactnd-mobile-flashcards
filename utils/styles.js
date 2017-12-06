@@ -12,10 +12,24 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    labelText: {
+    text: {
         fontSize: 18,
         fontWeight: "500",
         padding: 10
+    },
+    errorText: {
+        color: colors.error
+    },
+    input: {
+        height: 40,
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: colors.white,
+        borderColor: colors.gray,
+        borderWidth: 1
+    },
+    errorInput: {
+        borderColor: colors.error
     },
     headerText: {
         fontSize: 20,
@@ -33,20 +47,7 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         color: '#444'
     },
-    input: {
-        height: 40,
-        padding: 10,
-        borderRadius: 5,
-        backgroundColor: colors.white,
-        borderColor: '#222',
-        borderWidth: 1
-    },
-    errorInput: {
-        borderColor: colors.danger
-    },
-    errorText: {
-        color: colors.danger
-    },
+
     listItem: {
         flex: 1,
         flexDirection: 'row',
